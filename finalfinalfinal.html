@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuadro Sorpresa</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #2596be;/* Color de fondo sólido */
+        }
+        .center-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .center-container button {
+            padding: 20px 40px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        #sorpresaCuadro {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            z-index: 1000;
+        }
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+        #videoContainer {
+            margin-top: 20px;
+        }
+        #videoContainer video {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <audio id="backgroundMusic" loop autoplay>
+        <source src="https://raw.githubusercontent.com/Dakeskell/Suki.github.io/main/ABBA.mp3" type="audio/mpeg">
+        Tu navegador no soporta la etiqueta de audio.
+    </audio>
+
+    <div class="center-container">
+        <button onclick="mostrarSorpresa()">Sorpresa!</button>
+    </div>
+
+    <div id="overlay" onclick="ocultarSorpresa()"></div>
+    
+    <div id="sorpresaCuadro">
+        <div id="mensaje">Espero que tengas un cumpleaños increíble montse preciosa, te amo y me haces muchísimo muy feliz, espero poder estar a tu lado muchisimos años mas, te amo y feliz cumpleaños nuevamente</div>
+        <div id="videoContainer">
+            <video controls id="video">
+                <source src="https://raw.githubusercontent.com/Dakeskell/Suki.github.io/main/Felicitaciones.mp4" type="video/mp4">
+                Tu navegador no soporta la etiqueta de video.
+            </video>
+        </div>
+        <button onclick="ocultarSorpresa()">Cerrar</button>
+    </div>
+
+    <script>
+        function mostrarSorpresa() {
+            document.getElementById('sorpresaCuadro').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('backgroundMusic').pause(); // Pausar la música al mostrar el cuadro
+            document.getElementById('video').play(); // Reproducir el video al mostrar el cuadro;
+            video.volume = 0.6;
+        }
+
+        function ocultarSorpresa() {
+            document.getElementById('sorpresaCuadro').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('backgroundMusic').play(); // Reproducir la música al ocultar el cuadro
+            document.getElementById('video').pause(); // Pausar el video al ocultar el cuadro
+        }
+    </script>
+</body>
+</html>
